@@ -1,10 +1,14 @@
 package sanita.excercise;
 
-public class Persona {
+import java.util.Comparator;
+
+public class Persona implements Comparable<Persona> {
 
     private String nome;
     private String cognome;
     private String codiceFiscale;
+
+//    private Medico medico;
 
     public Persona(String nome, String cognome, String codiceFiscale) {
         this.nome = nome;
@@ -36,6 +40,13 @@ public class Persona {
         this.codiceFiscale = codiceFiscale;
     }
 
+//    public Medico getMedico() {
+//        return medico;
+//    }
+//
+//    public void setMedico(Medico medico) {
+//        this.medico = medico;
+//    }
     @Override
     public String toString() {
         return "Persona{" +
@@ -43,5 +54,10 @@ public class Persona {
                 ", cognome='" + cognome + '\'' +
                 ", codiceFiscale='" + codiceFiscale + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Persona persona) {
+        return this.getCognome().compareTo(persona.getCognome());
     }
 }

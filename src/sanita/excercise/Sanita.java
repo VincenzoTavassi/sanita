@@ -54,12 +54,13 @@ public class Sanita {
 
         for (Persona persona : persone) {
             if (persona.getCodiceFiscale().equals(codiceFiscale)) {
-                personaTrovata = new Paziente (persona.getNome(), persona.getCognome(), persona.getCodiceFiscale(), medicoTrovato);
+                personaTrovata = new Paziente (persona.getNome(), persona.getCognome(), persona.getCodiceFiscale());
             }
         }
         if (personaTrovata == null) throw new ErrPersonaInesistenteException("Persona non trovata");
 
         medicoTrovato.addPaziente(personaTrovata);
+        personaTrovata.setMedico(medicoTrovato);
     }
 
     public void caricaDati(String path) throws FileNotFoundException {

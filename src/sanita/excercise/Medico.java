@@ -1,6 +1,7 @@
 package sanita.excercise;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -30,7 +31,8 @@ public class Medico extends Persona {
     }
 
     public List<Persona> getPazienti() {
-        pazienti.sort(Comparator.comparing(Persona::getCognome));
+        pazienti.sort(Comparator.comparing(Persona::getCognome).reversed());
+//        Collections.sort(pazienti, new PersonaNomeComparator());
         return pazienti;
     }
 
